@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["peepmatic_test"] = [{"text":"impl&lt;'a&gt; <a class=\"trait\" href=\"peepmatic_runtime/instruction_set/trait.InstructionSet.html\" title=\"trait peepmatic_runtime::instruction_set::InstructionSet\">InstructionSet</a>&lt;'a&gt; for <a class=\"struct\" href=\"peepmatic_test/struct.TestIsa.html\" title=\"struct peepmatic_test::TestIsa\">TestIsa</a>","synthetic":false,"types":["peepmatic_test::TestIsa"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

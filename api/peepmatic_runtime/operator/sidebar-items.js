@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Operator","An operator."],["UnquoteOperator","Compile-time unquote operators."]],"trait":[["TypingContext","A trait to represent a typing context."]]});
