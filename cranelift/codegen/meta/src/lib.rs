@@ -113,10 +113,10 @@ pub fn generate(
                     &out_dir,
                 )?;
             }
-            isa::Isa::Arm64 | isa::Isa::Spirv => {
+            isa::Isa::Arm64 => {
                 // aarch64 doesn't have platform-specific settings.
             }
-            isa::Isa::Arm32 | isa::Isa::Riscv => todo!(),
+            isa::Isa::Arm32 | isa::Isa::Riscv | isa::Isa::Spirv => todo!(),
         }
     }
 

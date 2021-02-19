@@ -113,7 +113,8 @@ impl MachInstEmit for Inst {
     }
 
     fn pretty_print(&self, mb_rru: Option<&RealRegUniverse>, state: &mut EmitState) -> String {
-        todo!()
+        use crate::alloc::string::ToString;
+        "".to_string()
     }
 }
 

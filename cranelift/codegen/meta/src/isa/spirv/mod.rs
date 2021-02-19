@@ -2,7 +2,7 @@ use crate::cdsl::cpu_modes::CpuMode;
 use crate::cdsl::instructions::{InstructionGroupBuilder, InstructionPredicateMap};
 use crate::cdsl::isa::TargetIsa;
 use crate::cdsl::recipes::Recipes;
-use crate::cdsl::regs::{IsaRegs, IsaRegsBuilder};
+use crate::cdsl::regs::{IsaRegs, IsaRegsBuilder, RegBankBuilder, RegClassBuilder};
 use crate::cdsl::settings::SettingGroupBuilder;
 
 use crate::shared::Definitions as SharedDefinitions;
@@ -16,7 +16,17 @@ pub(crate) fn define_recipes(_shared_defs: &SharedDefinitions, _regs: &IsaRegs) 
 }
 
 fn define_registers() -> IsaRegs {
-    IsaRegsBuilder::new().build()
+    let mut regs = IsaRegsBuilder::new();
+
+    let builder = RegBankBuilder::new("VirtualRegs", "")
+        .units(255) // jb-todo: spirv's registers are virtual...
+        .track_pressure(true);
+    let int_regs = regs.add_bank(builder);
+
+    let builder = RegClassBuilder::new_toplevel("GPR", int_regs);
+    regs.add_class(builder);
+
+    regs.build()
 }
 
 pub(crate) fn define(shared_defs: &mut SharedDefinitions) -> TargetIsa {
